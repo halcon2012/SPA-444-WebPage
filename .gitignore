@@ -1,0 +1,14 @@
+# System files
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+remove_bg.py
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
