@@ -727,7 +727,7 @@ a {
    FOOTER
    ======================================== */
 .footer {
-    background: var(--color-dark);
+    background: linear-gradient(to bottom, var(--color-gray-dark), var(--color-black));
     color: var(--color-white);
     padding: var(--spacing-lg) 0 var(--spacing-md);
 }
@@ -740,9 +740,13 @@ a {
 }
 
 .footer-logo img {
-    width: 120px;
+    width: 140px;
     margin-bottom: var(--spacing-sm);
-    filter: brightness(0) invert(1);
+    filter: none;
+    background: var(--gradient-accent);
+    padding: 10px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer-tagline {
