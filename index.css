@@ -2,25 +2,31 @@
    CSS VARIABLES & DESIGN SYSTEM
    ======================================== */
 :root {
-    /* Colors from Spa444 Logo */
-    --color-gold: #C9A961;
-    --color-gold-light: #D4B876;
-    --color-gold-dark: #B89548;
-    --color-sage: #8BA888;
-    --color-sage-light: #A5C1A2;
-    --color-sage-dark: #6D8F6A;
-    --color-deep-green: #4A6B5A;
-    --color-cream: #F5F1E8;
+    /* New Color Palette */
+    --color-cyan: #00BCD4;
+    --color-cyan-light: #E0F7FA;
+    --color-cyan-dark: #00838F;
+    --color-beige: #F5F5DC;
+    --color-beige-dark: #D2C3A3;
+    --color-gray: #808080;
+    --color-gray-light: #F0F0F0;
+    --color-gray-dark: #404040;
     --color-white: #FFFFFF;
-    --color-off-white: #FAFAF7;
-    --color-dark: #2C3E35;
-    --color-text: #3A3A3A;
-    --color-text-light: #6B6B6B;
+    --color-black: #000000;
+
+    /* Mapping to semantic names */
+    --color-primary: var(--color-cyan);
+    --color-secondary: var(--color-beige);
+    --color-text: var(--color-gray-dark);
+    --color-text-light: var(--color-gray);
+    --color-background: var(--color-cyan-light);
+    --color-surface: var(--color-white);
+    --color-dark: var(--color-black);
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--color-sage) 0%, var(--color-deep-green) 100%);
-    --gradient-overlay: linear-gradient(to bottom, rgba(44, 62, 53, 0.7), rgba(74, 107, 90, 0.85));
+    --gradient-primary: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-cyan-dark) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--color-beige) 0%, var(--color-white) 100%);
+    --gradient-overlay: linear-gradient(to bottom, rgba(0, 131, 143, 0.7), rgba(0, 0, 0, 0.85));
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -42,7 +48,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --shadow-gold: 0 4px 20px rgba(201, 169, 97, 0.3);
+    --shadow-cyan: 0 4px 20px rgba(0, 188, 212, 0.3);
 
     /* Border Radius */
     --radius-sm: 8px;
@@ -67,7 +73,7 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--color-text);
-    background-color: var(--color-off-white);
+    background-color: var(--color-background);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -119,7 +125,7 @@ a {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-cyan);
 }
 
 /* ========================================
@@ -251,8 +257,8 @@ a {
     transition: all var(--transition-normal);
     mix-blend-mode: multiply;
     /* This makes the white background transparent */
-    filter: contrast(1.1);
-    /* Slight contrast boost to make it pop */
+    filter: contrast(1.2) drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+    /* Increased thickness with drop-shadow and contrast */
 }
 
 /* Shrink logo slightly when scrolled */
@@ -292,7 +298,7 @@ a {
 }
 
 .nav-link:hover {
-    color: var(--color-gold);
+    color: var(--color-primary);
 }
 
 .nav-link:hover::after {
@@ -499,7 +505,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-white);
+    color: var(--color-dark);
+    /* Changed to dark for contrast on beige */
     transition: all var(--transition-normal);
 }
 
@@ -510,6 +517,7 @@ a {
 
 .service-card:hover .service-icon {
     background: var(--gradient-primary);
+    color: var(--color-white);
     transform: rotate(360deg) scale(1.1);
 }
 
@@ -529,7 +537,7 @@ a {
    GALLERY SECTION
    ======================================== */
 .gallery-section {
-    background: linear-gradient(to bottom, var(--color-off-white), var(--color-cream));
+    background: linear-gradient(to bottom, var(--color-background), var(--color-beige));
 }
 
 .gallery-grid {
@@ -570,7 +578,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(44, 62, 53, 0.9), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
     display: flex;
     align-items: flex-end;
     padding: var(--spacing-md);
@@ -609,7 +617,7 @@ a {
 }
 
 .stars {
-    color: var(--color-gold);
+    color: var(--color-primary);
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
 }
@@ -670,7 +678,7 @@ a {
 .contact-item svg {
     width: 40px;
     height: 40px;
-    color: var(--color-gold);
+    color: var(--color-primary);
     flex-shrink: 0;
 }
 
@@ -695,12 +703,12 @@ a {
     background: var(--gradient-primary);
     color: var(--color-white);
     border: none;
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-cyan);
 }
 
 .primary-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 188, 212, 0.4);
 }
 
 .secondary-button {
@@ -720,7 +728,7 @@ a {
    ======================================== */
 .footer {
     background: var(--color-dark);
-    color: var(--color-cream);
+    color: var(--color-white);
     padding: var(--spacing-lg) 0 var(--spacing-md);
 }
 
@@ -738,7 +746,7 @@ a {
 }
 
 .footer-tagline {
-    color: var(--color-gold);
+    color: var(--color-primary);
     font-style: italic;
 }
 
@@ -746,7 +754,7 @@ a {
 .footer-hours h4,
 .footer-social h4 {
     font-family: var(--font-heading);
-    color: var(--color-gold);
+    color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -759,12 +767,12 @@ a {
 }
 
 .footer-links a {
-    color: var(--color-cream);
+    color: var(--color-white);
     transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
-    color: var(--color-gold);
+    color: var(--color-primary);
 }
 
 .footer-hours p {
@@ -779,7 +787,7 @@ a {
 .social-icons a {
     width: 40px;
     height: 40px;
-    background: rgba(201, 169, 97, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -788,7 +796,7 @@ a {
 }
 
 .social-icons a:hover {
-    background: var(--color-gold);
+    background: var(--color-primary);
     transform: translateY(-3px);
 }
 
@@ -800,7 +808,7 @@ a {
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(201, 169, 97, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-text-light);
 }
 
